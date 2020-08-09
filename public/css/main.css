@@ -1,0 +1,106 @@
+*{
+    font-family: Rockwell, monospace;
+}
+body{
+    background-image: url("/img/battle_arena_.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#battlefield{
+    top: 18vh;
+    left: 0;
+    padding: 0;
+    width: 100vw;
+    position: absolute;
+}
+#playerside{
+    float: left;
+    width: 45vw;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-auto-rows: 90px;
+}
+#enemiside {
+    text-align: right;
+    float: right;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-auto-rows: 90px;
+}
+.characters_visuel,.characters_visuel_bis,.characters_visuel_ennemi{
+    height: 80px;
+}
+.characters_visuel_container{
+    position: relative;
+}
+.characters_visuel_container .characters_visuel,.characters_visuel_container .characters_visuel_bis{
+    position: absolute;
+}
+.health_bar{
+    position: absolute;
+    top: -10px;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 80px;
+    height: 7px;
+    z-index: 10;
+    color: red;
+}
+.statue_container{
+    position: absolute;
+    z-index: 15;
+    left: -10px;
+}
+#enemiside .statue_container{
+    left: 25px;
+}
+.statue_container img{
+    width: 30px;
+}
+.ennemi_bar{
+    right: -10px;
+}
+.player_bar{
+    left: -10px;
+}
+.health_bar::-moz-progress-bar {
+    background: red;
+}
+.health_bar::-webkit-progress-value {
+    background: red;
+}
+#skillpanel{
+    color: white;
+    position: absolute;
+    width: 100vw;
+    bottom: -2vh;
+    height: 25vh;
+    text-align: center;
+}
+#skillsmenu{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+#skillsmenu img{
+    height: 40px;
+}
+#skilldesc{
+}
+h3{
+    margin: 5px;
+}
+p{
+    margin: 5px;
+}
+#confirmaction{
+    font-size: 1.5rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+
+}
