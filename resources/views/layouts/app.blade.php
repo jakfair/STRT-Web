@@ -17,6 +17,16 @@
     <script src="{{asset('js/animation.js')}}"></script>
 
     <script type="text/javascript">
+        @if($save != "[]")
+            console.log("ya une save");
+            teams = {!! json_encode($save->toArray()) !!};
+            playerteam = JSON.parse(teams[0].JSON);
+            enemyteam1 = JSON.parse(teams[1].JSON);
+            sessionStorage.playercharacters = JSON.stringify(playerteam);
+            sessionStorage.ennemicharacters = JSON.stringify(enemyteam1);
+        @else
+            console.log("ya pas de save")
+        @endif
         var triptyques = {!! json_encode($triptyques->toArray()) !!};
         var skills = {!! json_encode($skills->toArray()) !!};
         var effets = {!! json_encode($effets->toArray()) !!};

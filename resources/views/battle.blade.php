@@ -13,6 +13,9 @@
                 <div class="statue_container" id="statue_container_non0">
 
                 </div>
+                <div class="actions_container" id="actions_container_non0">
+
+                </div>
                 <progress class="health_bar player_bar" id="health_bar_character_0" value="100" max="100"></progress>
                 <img class="characters_visuel" id="character0_visuel" onclick="setattaquant(0)" src="">
                 <img class="characters_visuel_bis" id="character0_visuel_bis" onclick="setdefenseur(0)" src="">
@@ -24,6 +27,9 @@
             </div>
             <div class="characters_visuel_container">
                 <div class="statue_container" id="statue_container_non1">
+
+                </div>
+                <div class="actions_container" id="actions_container_non1">
 
                 </div>
                 <progress class="health_bar player_bar" id="health_bar_character_1" value="100" max="100"></progress>
@@ -38,6 +44,9 @@
                 <div class="statue_container" id="statue_container_non2">
 
                 </div>
+                <div class="actions_container" id="actions_container_non2">
+
+                </div>
                 <progress class="health_bar player_bar" id="health_bar_character_2" value="100" max="100"></progress>
                 <img class="characters_visuel" id="character2_visuel" onclick="setattaquant(2)" src="">
                 <img class="characters_visuel_bis" id="character2_visuel_bis" onclick="setdefenseur(2)" src="">
@@ -48,6 +57,9 @@
             </div>
             <div class="characters_visuel_container">
                 <div class="statue_container" id="statue_container_non3">
+
+                </div>
+                <div class="actions_container" id="actions_container_non3">
 
                 </div>
                 <progress class="health_bar player_bar" id="health_bar_character_3" value="100" max="100"></progress>

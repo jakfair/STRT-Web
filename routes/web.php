@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/newtournament', 'HomeController@newtournament');
+route::post('registerteams','HomeController@registerteams');
 Route::get('/battle', 'HomeController@battle');
 
 Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
 Route::group(['middleware' => ['auth']], function() { //on ne peut accéder à toutes les url d'admin seulement si on est connectés.
 
     Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

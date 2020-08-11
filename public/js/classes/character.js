@@ -18,7 +18,7 @@ var character = class {
         this.esquive = arme.esquive + pouvoir.esquive + classe.esquive
         this.précision = arme.précision + pouvoir.précision + classe.précision;
         this.vitesse = arme.vitesse + pouvoir.vitesse + classe.vitesse;
-        this.actionsmax = this.vitesse / 10;
+        this.actionsmax = Math.round(this.vitesse / 10);
         this.actions = this.actionsmax;
         this.critique = arme.critique + pouvoir.critique + classe.critique;
     }

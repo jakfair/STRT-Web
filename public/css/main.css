@@ -6,6 +6,31 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
 }
+a{
+    text-decoration: none;
+    color: black;
+}
+#menu{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 95vw;
+}
+.button{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-image: url('/img/button.png');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50%;
+    text-transform: uppercase;
+}
 #battlefield{
     top: 18vh;
     left: 0;
@@ -52,6 +77,15 @@ body{
     position: absolute;
     z-index: 15;
     left: -10px;
+}
+.actions_container{
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    top: -5px;
+}
+.actions_container img{
+    height: 100%;
 }
 #enemiside .statue_container{
     left: 25px;

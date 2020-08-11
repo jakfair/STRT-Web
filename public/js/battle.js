@@ -10,6 +10,7 @@ for(i=0;i<playercharacters.length;i++){
     document.getElementById("character"+i+"_visuel_bis").style.display = "none";
     document.getElementById("health_bar_character_"+i).max = playercharacters[i].vie;
     document.getElementById("health_bar_character_"+i).value = playercharacters[i].vie;
+    setmaxactions(playercharacters[i]);
 
     document.getElementById("ennemi"+i+"_visuel").src = ennemicharacters[i].classe.icone;
     document.getElementById("ennemi"+i+"_visuel").style.transform = "scaleX(-1)";
@@ -31,7 +32,7 @@ function action(){
     console.log(playercharacters[attaquant].actions);
     if(playercharacters[attaquant].actions >= skill.coût){
         playercharacters[attaquant].actions = playercharacters[attaquant].actions - skill.coût;
-
+        updateactions();
 
         skill.effets.forEach(function(effet){
            if(effet.type == "attaque"){
@@ -155,17 +156,34 @@ function resetdisplayskills(){
 }
 function setstatue(character){
     status_container = "statue_container_"+character.ennemi+character.ou;
-    console.log(status_container);
     character.status.forEach(function(statue){
         var img = document.createElement('img');
         img.src = statue.icone;
         document.getElementById(status_container).appendChild(img);
     });
 }
-newstatus = {
+function setmaxactions(character){
+    actions_container = "actions_container_"+character.ennemi+character.ou;
+    for(b=0;b<character.actionsmax;b++){
+        var img = document.createElement('img');
+        img.src = "/img/action_pleine.png";
+        img.className = "actions_"+character.ou;
+        document.getElementById(actions_container).appendChild(img);
+    }
+}
+function updateactions(){
+    actions = document.getElementsByClassName("actions_"+attaquant);
+    for(i=0;i<playercharacters[attaquant].actionsmax;i++){
+        actions[i].src = "/img/action_vide.png";
+    }
+    for(i=0;i<playercharacters[attaquant].actions;i++){
+        actions[i].src = "/img/action_pleine.png";
+    }
+}
+/*newstatus = {
     nom: "stun", icone: "/img/stun_status.png",tour:1
 }
 playercharacters[0].status.push(newstatus);
 newstatus = {
     nom: "poison", icone: "/img/poison_status.png",tour:1
-}
+}*/
