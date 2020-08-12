@@ -7,10 +7,14 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>STRT</title>
+    <link rel="icon" type="image/png" href="img/favicon.png" />
 
     <!-- Scripts -->
-    <script src="{{asset('js/jquery-3.5.1.min.js')}}"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
     <script src="{{asset('js/app.js') }}" defer></script>
     <script src="{{asset('js/classes/tryptique.js')}}"></script>
     <script src="{{asset('js/classes/character.js')}}"></script>
@@ -59,6 +63,11 @@
 </head>
 <body>
     <div id="app">
+        @if (Auth::check())
+            <div id="account_menu">{{Auth::user()->name}}</div> | <a href="/logout">Se déconnecter</a>
+        @else
+            <a href="/login">Se connecter</a> | <a href="/register">S'inscrire</a>
+        @endif
         <main class="py-4">
             @yield('content')
         </main>

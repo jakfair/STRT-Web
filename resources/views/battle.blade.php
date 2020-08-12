@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <input id="confirmaction" type="button" value="confirmer" style="display: none" onclick="action()">
+    <input class="button" id="confirmaction" type="button" value="confirmer" style="display: none" onclick="action()">
     <div id="battlefield">
         <div id="playerside">
             <div class="fleche_container">
@@ -74,6 +74,7 @@
                 </div>
                 <progress class="health_bar ennemi_bar" id="health_bar_character_0_ennemi" value="100" max="100"></progress>
                 <img class="characters_visuel_ennemi" id="ennemi0_visuel" onclick="setdefenseur(0)" src="">
+                <div class="container_degat" id="container_degat_oui0">20</div>
             </div>
             <img class="fleche_droite" id="fleche_droite_0" src="/img/fleche_rouge.png">
             <div class="characters_visuel_container">
@@ -82,6 +83,7 @@
                 </div>
                 <progress class="health_bar ennemi_bar" id="health_bar_character_1_ennemi" value="100" max="100"></progress>
                 <img class="characters_visuel_ennemi" id="ennemi1_visuel" onclick="setdefenseur(1)" src="">
+                <div class="container_degat" id="container_degat_oui1">20</div>
             </div>
             <img class="fleche_droite" id="fleche_droite_1" src="/img/fleche_rouge.png">
             <div class="characters_visuel_container">
@@ -90,6 +92,7 @@
                 </div>
                 <progress class="health_bar ennemi_bar" id="health_bar_character_2_ennemi" value="100" max="100"></progress>
                 <img class="characters_visuel_ennemi" id="ennemi2_visuel" onclick="setdefenseur(2)" src="">
+                <div class="container_degat" id="container_degat_oui2">20</div>
             </div>
             <img class="fleche_droite" id="fleche_droite_2" src="/img/fleche_rouge.png">
             <div class="characters_visuel_container">
@@ -98,16 +101,37 @@
                 </div>
                 <progress class="health_bar ennemi_bar" id="health_bar_character_3_ennemi" value="100" max="100"></progress>
                 <img class="characters_visuel_ennemi" id="ennemi3_visuel" onclick="setdefenseur(3)" src="">
+                <div class="container_degat" id="container_degat_oui3">20</div>
             </div>
             <img class="fleche_droite" id="fleche_droite_3" src="/img/fleche_rouge.png">
         </div>
     </div>
     <div id="skillpanel">
         <div id="skillsmenu">
-            <img src="" class="buttonskill" id="skill0" onclick="setskill(0)"/>
-            <img src="" class="buttonskill" id="skill1" onclick="setskill(1)"/>
-            <img src="" class="buttonskill" id="skill2" onclick="setskill(2)"/>
-            <img src="" class="buttonskill" id="skill3" onclick="setskill(3)"/>
+            <div class="container_skill" id="container_skill0">
+                <img src="" class="buttonskill" id="skill0" onclick="setskill(0)"/>
+                <div class="coutvisual_container" id="coutvisual_container0">
+
+                </div>
+            </div>
+            <div class="container_skill" id="container_skill1">
+                <img src="" class="buttonskill" id="skill0" onclick="setskill(1)"/>
+                <div class="coutvisual_container" id="coutvisual_container1">
+
+                </div>
+            </div>
+            <div class="container_skill" id="container_skill2">
+                <img src="" class="buttonskill" id="skill0" onclick="setskill(2)"/>
+                <div class="coutvisual_container" id="coutvisual_container2">
+
+                </div>
+            </div>
+            <div class="container_skill" id="container_skill3">
+                <img src="" class="buttonskill" id="skill0" onclick="setskill(3)"/>
+                <div class="coutvisual_container" id="coutvisual_container3">
+
+                </div>
+            </div>
         </div>
         <div id="skilldesc">
             <h3 id="skilltitle"></h3>

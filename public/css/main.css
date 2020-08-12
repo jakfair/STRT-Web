@@ -1,5 +1,9 @@
+@font-face{
+    font-family: Karma;
+    src: url("/font/karma_future.ttf");
+}
 *{
-    font-family: Rockwell, monospace;
+    font-family: Karma, serif;
 }
 body{
     background-image: url("/img/battle_arena_.png");
@@ -16,6 +20,10 @@ a{
     top: 50%;
     transform: translate(-50%, -50%);
     width: 95vw;
+}
+input{
+    border: none;
+    background: none;
 }
 .button{
     margin-left: auto;
@@ -73,6 +81,14 @@ a{
     z-index: 10;
     color: red;
 }
+.container_degat{
+    position: absolute;
+    top: 0;
+    left: 10px;
+    z-index: 30;
+    font-size: 2rem;
+    display: none;
+}
 .statue_container{
     position: absolute;
     z-index: 15;
@@ -113,6 +129,7 @@ a{
     height: 25vh;
     text-align: center;
 }
+
 #skillsmenu{
     width: 100%;
     display: flex;
@@ -120,6 +137,21 @@ a{
 }
 #skillsmenu img{
     height: 40px;
+}
+.container_skill{
+    position: relative;
+}
+.container_skill .coutvisual_container{
+    position: absolute;
+    width: 150px;
+    top: -15px;
+    left: -20px;
+    z-index: -10;
+}
+.container_skill .coutvisual_container .coutvisual{
+    height: 25px!important;
+    display: inline-block;
+    margin-left: -15px;
 }
 #skilldesc{
 }

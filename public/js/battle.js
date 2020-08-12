@@ -29,24 +29,28 @@ for(i=0;i<fleche_gauche.length;i++){
 
 
 function action(){
-    console.log(playercharacters[attaquant].actions);
-    if(playercharacters[attaquant].actions >= skill.coût){
-        playercharacters[attaquant].actions = playercharacters[attaquant].actions - skill.coût;
+    if(playercharacters[attaquant].actions >= skill.cout){
+        playercharacters[attaquant].actions = playercharacters[attaquant].actions - skill.cout;
         updateactions();
 
         skill.effets.forEach(function(effet){
            if(effet.type == "attaque"){
+               critique = "non";
                testAttaque = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
                testDefense = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
                LeftToRightAnimation();
-               if((playercharacters[attaquant].précision + testAttaque) >= ennemicharacters[defenseur].esquive + testDefense){
+               console.log(playercharacters[attaquant].précision + " + " + testAttaque);
+               console.log(ennemicharacters[defenseur].esquive + " + " + testDefense);
+               if((playercharacters[attaquant].précision + testAttaque) >= (ennemicharacters[defenseur].esquive + testDefense)){
                    BlinkAnimation();
                    degat = (playercharacters[attaquant].attaque * effet.valeur) - ennemicharacters[defenseur].defense;
                    testCritique = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
                    if(playercharacters[attaquant].critique >= testCritique){
                        degat = degat * 2;
+                       critique = "oui";
                    }
                    ennemicharacters[defenseur].vie = ennemicharacters[defenseur].vie - degat;
+                   degatAnimation(degat,critique);
                    if(ennemicharacters[defenseur].vie <= 0){
                        newstatus = {
                            nom: "dead", icone: "/img/dead_status.png",tour:1000
@@ -58,6 +62,7 @@ function action(){
                    document.getElementById("health_bar_character_"+defenseur+"_ennemi").value = ennemicharacters[defenseur].vie;
                }
                else{
+                   degatAnimation("RATE",critique);
                }
            }
            if(effet.type == "status"){
@@ -102,8 +107,17 @@ function setdefenseur(position){
 }
 function displayskills(position){
     buttonskills = document.getElementsByClassName("buttonskill");
+    containerskills = document.getElementsByClassName("container_skill");
     resetdisplayskills();
     for(i=0;i<playercharacters[position].skillselected.length;i++){
+        containercoutvisual = document.getElementById("coutvisual_container"+i);
+        for(b=0;b<playercharacters[position].skillselected[i].cout;b++){
+            var img = document.createElement('img');
+            img.src = "/img/coutskill.png";
+            img.className = "coutvisual";
+            containercoutvisual.appendChild(img);
+        }
+        containerskills[i].style.display = "block";
         buttonskills[i].src = playercharacters[position].skillselected[i].icone;
         buttonskills[i].style.display = "block";
     }
@@ -147,6 +161,14 @@ function resetdefenseur(){
 }
 function resetdisplayskills(){
     skill = "";
+    containerskills = document.getElementsByClassName("container_skill");
+    containercoutvisual = document.getElementsByClassName("coutvisual_container");
+    for(b=0;b<containercoutvisual.length;b++){
+        containercoutvisual[b].innerHTML = "";
+    }
+    for(i=0;i<containerskills.length;i++){
+        containerskills[i].style.display = "none";
+    }
     buttonskills = document.getElementsByClassName("buttonskill");
     for(i=0;i<buttonskills.length;i++){
         buttonskills[i].style.display = "none";
