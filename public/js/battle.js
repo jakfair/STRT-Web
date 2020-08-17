@@ -44,7 +44,7 @@ function action(){
                if((playercharacters[attaquant].précision + testAttaque) >= (ennemicharacters[defenseur].esquive + testDefense)){
                    BlinkAnimation();
                    degat = (playercharacters[attaquant].attaque * effet.valeur) - ennemicharacters[defenseur].defense;
-                   testCritique = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+                   testCritique = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
                    if(playercharacters[attaquant].critique >= testCritique){
                        degat = degat * 2;
                        critique = "oui";
@@ -102,6 +102,18 @@ function setdefenseur(position){
         defenseur = position;
         fleche_droite[position].style.visibility = "visible";
         stage = 3;
+        var value = "";
+        var color = "";
+        if(skill.effets[0].type == "attaque"){
+            value = (playercharacters[attaquant].attaque * skill.effets[0].valeur) - ennemicharacters[defenseur].defense;
+            color = "red";
+        }
+
+
+        if(skill.description.includes("<span ")){
+            document.getElementById("descvalue").innerText = value;
+            document.getElementById("descvalue").style.color = color;
+        }
         setconfirmed();
     }
 }
@@ -127,7 +139,7 @@ function setskill(position){
         resetdefenseur();
         skill = playercharacters[attaquant].skillselected[position];
         document.getElementById("skilltitle").innerText = skill.nom;
-        document.getElementById("skilldescription").innerText = skill.description;
+        document.getElementById("skilldescription").innerHTML = skill.description;
         stage = 2;
         setconfirmed();
     }

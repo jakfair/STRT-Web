@@ -63,11 +63,13 @@
 </head>
 <body>
     <div id="app">
-        @if (Auth::check())
-            <div id="account_menu">{{Auth::user()->name}}</div> | <a href="/logout">Se déconnecter</a>
-        @else
-            <a href="/login">Se connecter</a> | <a href="/register">S'inscrire</a>
-        @endif
+        <div id="auth-card">
+            @if (Auth::check())
+                <div id="account_menu">{{Auth::user()->name}}</div> | <a href="/logout">Se déconnecter</a>
+            @else
+                <a href="/login">Se connecter</a> | <a href="/register">S'inscrire</a>
+            @endif
+        </div>
         <main class="py-4">
             @yield('content')
         </main>

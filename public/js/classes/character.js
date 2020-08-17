@@ -25,7 +25,26 @@ var character = class {
 }
 
 function newrandcharacters(ou,ennemi){
-    var newcharacter = new character("maël",triptyques[Math.floor(Math.random() * triptyques.length)],triptyques[Math.floor(Math.random() * triptyques.length)],triptyques[Math.floor(Math.random() * triptyques.length)],ennemi,ou);
+    var Names = ["Aekkein", "Erna", "Gica", "Iris", "Laen", "Oanei", "Urusla", "Unt", "Zy", "Giny", "Teni", "Tania",
+        "Tenisa", "Falish", "Tirs", "Bera", "Boria", "Terkia", "Tronash", "Peli", "Irnia", "Beth",
+        "Riven", "Lio", "Nayeli","Anttirnet", "Carnil", "Estiv", "Halt", "Hoijof", "Laen", "Lisiern", "Berin", "Ton", "Shome", "Regit",
+        "Lurin", "Maers", "Musten", "Oanei", "Raesh", "Terio", "Unt", "Ust", "Redik", "James", "Loki", "Tem", "Regot",
+        "Josh", "Tom" ,"Jei", "Lioth"];
+    var triptyquesclasse = [];
+    var triptyquespouvoir = [];
+    var triptyquesarme = [];
+    triptyques.forEach(function(triptyque){
+       if(triptyque.type == "classe"){
+           triptyquesclasse.push(triptyque);
+       }
+        if(triptyque.type == "pouvoir"){
+            triptyquespouvoir.push(triptyque);
+        }
+        if(triptyque.type == "arme"){
+            triptyquesarme.push(triptyque);
+        }
+    });
+    var newcharacter = new character(Names[Math.floor(Math.random() * Names.length)],triptyquesarme[Math.floor(Math.random() * triptyquesarme.length)],triptyquespouvoir[Math.floor(Math.random() * triptyquespouvoir.length)],triptyquesclasse[Math.floor(Math.random() * triptyquesclasse.length)],ennemi,ou);
     newcharacter.arme.skills.forEach(function(skill){
         if(skill.tier == 1){
             newcharacter.skills.push(skill);
