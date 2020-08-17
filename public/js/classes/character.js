@@ -12,15 +12,15 @@ var character = class {
         this.classelevel = 1;
         this.ennemi = ennemi;
         this.ou = ou;
-        this.vie = arme.vie + pouvoir.vie + classe.vie;
-        this.attaque = arme.attaque + pouvoir.attaque + classe.attaque;
-        this.defense = arme.defense + pouvoir.defense + classe.defense;
-        this.esquive = arme.esquive + pouvoir.esquive + classe.esquive
-        this.précision = arme.précision + pouvoir.précision + classe.précision;
-        this.vitesse = arme.vitesse + pouvoir.vitesse + classe.vitesse;
+        this.vie = +arme.vie + +pouvoir.vie + +classe.vie;
+        this.attaque = +arme.attaque + +pouvoir.attaque + +classe.attaque;
+        this.defense = +arme.defense + +pouvoir.defense + +classe.defense;
+        this.esquive = +arme.esquive + +pouvoir.esquive + +classe.esquive
+        this.précision = +arme.précision + +pouvoir.précision + +classe.précision;
+        this.vitesse = +arme.vitesse + +pouvoir.vitesse + +classe.vitesse;
         this.actionsmax = Math.round(this.vitesse / 10);
         this.actions = this.actionsmax;
-        this.critique = arme.critique + pouvoir.critique + classe.critique;
+        this.critique = +arme.critique + +pouvoir.critique + +classe.critique;
     }
 }
 
